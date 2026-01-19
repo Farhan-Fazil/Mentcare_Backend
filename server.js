@@ -19,9 +19,7 @@ connectCloudinary()
 app.use(express.json())
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173"
-    ],
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true
   })
@@ -39,15 +37,15 @@ app.get("/", (req, res) => {
   res.send("API Working")
 });
 
-app.get('/test-db', (req, res) => {
-  const state = mongoose.connection.readyState;
-  // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
-  if (state === 1) {
-    res.send('Database is connected');
-  } else {
-    res.status(500).send('Database is NOT connected');
-  }
-});
+// app.get('/test-db', (req, res) => {
+//   const state = mongoose.connection.readyState;
+//   // 0 = disconnected, 1 = connected, 2 = connecting, 3 = disconnecting
+//   if (state === 1) {
+//     res.send('Database is connected');
+//   } else {
+//     res.status(500).send('Database is NOT connected');
+//   }
+// });
 
 
 // app.listen(port, () => console.log(`Server started on PORT:${port}`))
