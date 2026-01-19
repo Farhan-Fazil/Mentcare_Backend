@@ -17,7 +17,18 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
-app.use(cors())
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://mentcare.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true
+  })
+)
+
+app.options("*", cors())
 
 // api endpoints
 app.use('/api/admin', adminRouter)
