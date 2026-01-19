@@ -17,13 +17,14 @@ connectCloudinary()
 
 // middlewares
 app.use(express.json())
+app.use(express.json())
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    origin: true,
     credentials: true
   })
 )
+
 
 app.options("*", cors())
 
@@ -49,3 +50,4 @@ app.get("/", (req, res) => {
 
 
 // app.listen(port, () => console.log(`Server started on PORT:${port}`))
+export default app
